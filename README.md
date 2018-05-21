@@ -1,5 +1,5 @@
 # MovieRecommender
-Recommends movies based on cast, director, keywords, and genre.
+Recommends movies based on cast, director, keywords, genre, and IMDB rating.
 
 `Examples:`
 
@@ -15,3 +15,5 @@ Recommends movies based on cast, director, keywords, and genre.
 | Inception  | The Social Network  |
 | Memento  | The Maltese Falcon  |
 | Hitman  | Gone Baby Gone  |
+
+Dataset is a little outdated. Cannot be uploaded due to being over 25 MBs.
