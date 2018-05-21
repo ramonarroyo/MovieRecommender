@@ -16,4 +16,4 @@ Recommends movies based on cast, director, keywords, genre, and IMDB rating.
 | Memento  | The Maltese Falcon  |
 | Hitman  | Gone Baby Gone  |
 
-Dataset is a little outdated. Cannot be uploaded due to being over 25 MBs.
+Uses the MovieLens dataset.
