@@ -16,6 +16,8 @@ Recommends movies based on cast, director, genres, and IMDB rating.
 | Memento  | L.A. Confidential  | Bringing Out the Dead |
 | Harsh Times  | Lucky Number Slevin  | Goodfellas |
 
+This program processes a lot of data and requires a 64-bit version of Python.
+
 ### Future Work:
 - Make into a webapp using Flask
 - use SQLite to provide backend data
