@@ -10,7 +10,7 @@ movie = input("What movie would you like a recommendation for? ")
 # Read movie data from TSV files, use chunks for files that are too big
 print("Getting movie dataset...")
 title = pd.read_csv('title.basics.tsv', low_memory=False, chunksize=1000000, sep='\t',
-                    encoding='utf-8', usecols=['tconst', 'titleType', 'originalTitle', 'genres'])
+                    encoding='utf-8', usecols=['tconst', 'titleType', 'primaryTitle', 'genres'])
 ratings = pd.read_csv('title.ratings.tsv', sep='\t', encoding='utf-8')
 director = pd.read_csv('title.crew.tsv', low_memory=False, chunksize=1000000, sep='\t', encoding='utf-8',
                        usecols=['tconst', 'directors'])
@@ -21,7 +21,7 @@ director = pd.concat(director)
 metadata = metadata.loc[metadata['titleType'] == 'movie']
 
 # Check if movie exists in data before continuing
-if movie not in list(metadata['originalTitle']):
+if movie not in list(metadata['primaryTitle']):
     raise KeyError('This movie is not in the dataset.')
 
 # Merge the different dataframes into just one
@@ -78,7 +78,7 @@ for column in series:
 metadata.rename(columns={'primaryName': 'actors'}, inplace=True)
 
 # Group all the actors per movie into a list in a single row
-metadata = metadata.astype(str).groupby(['originalTitle', 'director', 'genres', 'score']
+metadata = metadata.astype(str).groupby(['primaryTitle', 'director', 'genres', 'score']
                                         )['actors'].apply(list).reset_index()
 
 # Group all genres into a list
@@ -116,7 +116,7 @@ count_matrix = count.fit_transform(metadata['soup'])
 cosine_sim2 = cosine_similarity(count_matrix, count_matrix)
 
 metadata = metadata.reset_index()
-indices = pd.Series(metadata.index, index=metadata['originalTitle'])
+indices = pd.Series(metadata.index, index=metadata['primaryTitle'])
 
 def get_recommendations(title, cosine_sim=cosine_sim2):
     idx = indices[title]
@@ -127,7 +127,7 @@ def get_recommendations(title, cosine_sim=cosine_sim2):
     # Get scores of the top 10 similar movies
     sim_scores = sim_scores[1:11]
     movie_indices = [i[0] for i in sim_scores]
-    return metadata['originalTitle'].iloc[movie_indices]
+    return metadata['primaryTitle'].iloc[movie_indices]
 
 
 print(get_recommendations(movie))
