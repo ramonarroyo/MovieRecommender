@@ -27,7 +27,7 @@ if movie not in list(metadata['originalTitle']):
 # Merge the different dataframes into just one
 metadata = metadata.merge(ratings, on='tconst')
 metadata = metadata.merge(director, on='tconst')
-ratings, director = None, None  # Clear variables to save memory
+title, ratings, director = None, None, None  # Clear variables to save memory
 
 # Choose only the first director
 metadata['directors'] = metadata['directors'].apply(lambda x: x[:9])
