@@ -20,7 +20,9 @@ This program processes a lot of data and requires a 64-bit version of Python.
 
 ### Future Work:
 - Make into a webapp using Flask
-- use SQLite to provide backend data
+- Split into two apps to speed up recommendation and not load the entire dataset every single time
+- Use SQLite to provide backend data for webapp
+- Allow user to add more than one movie at a time
 
 Information courtesy of
 IMDb
