@@ -38,13 +38,11 @@ C = metadata['averageRating'].mean()
 m = metadata['numVotes'].quantile(0.95)
 metadata = metadata.loc[metadata['numVotes'] >= m]
 
-
 def weighted_rating(x, C=C, m=m):
     v = x['numVotes']
     R = x['averageRating']
     # Calculation based on the IMDB formula
     return (v / (v + m) * R) + (m / (m + v) * C)
-
 
 metadata['score'] = metadata.apply(weighted_rating, axis=1)
 
