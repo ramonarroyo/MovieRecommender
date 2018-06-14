@@ -1,6 +1,8 @@
 # MovieRecommender
 Recommends movies based on cast, director, genres, and IMDB rating.
 
+Since the dataset is so big, movies.py is first ran to reduce the data using an IMDb weighted rating formula and the desired quantile to a more manageable level and then the recommendation system runs with this data.
+
 `Examples:`
 
 | The Dark Knight  | Se7en | The Departed |
