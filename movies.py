@@ -56,17 +56,12 @@ def get_movies(percentage, name):
     metadata = metadata.merge(names, how='left', on='nconst')
     cast, names = None, None
 
-    series = ['tconst', 'nconst', 'category']
-    for column in series:
-        del metadata[column]
-
     metadata.rename(columns={'primaryName': 'actors'}, inplace=True)
+    metadata.rename(columns={'primaryTitle': 'title'}, inplace=True)
 
     # Group all the actors per movie into a list in a single row
-    metadata = metadata.astype(str).groupby(['primaryTitle', 'director', 'genres', 'score']
+    metadata = metadata.astype(str).groupby(['title', 'director', 'genres', 'score']
                                             )['actors'].apply(list).reset_index()
-
-    metadata.rename(columns={'primaryTitle': 'title'}, inplace=True)
 
     metadata['genres'] = metadata['genres'].astype(str).apply(lambda x: x.split(','))
 
