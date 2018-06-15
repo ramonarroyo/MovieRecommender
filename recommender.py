@@ -33,13 +33,13 @@ def get_recommendations(title, indices, cosine_sim, df):
 
 def main(dataset):
     movie = input("What movie would you like a recommendation for? ")
-
     df = pd.read_csv(dataset, sep=',', encoding='utf-8', usecols=['title', 'director', 'genres', 'score', 'actors'])
 
     if movie not in list(df['title']):
         print('This movie is not in the dataset.')
         return None
-
+    
+    # Give director double weight for more accurate recommendations
     df['director'] = df['director'].apply(lambda x: [x, x])
 
     series = ['actors', 'genres', 'director']
@@ -55,7 +55,6 @@ def main(dataset):
 
     df = df.reset_index()
     indices = pd.Series(df.index, index=df['title'])
-
     recommendations = get_recommendations(movie, indices, cosine_sim2, df)
     print(recommendations)
 
