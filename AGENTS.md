@@ -37,7 +37,7 @@ Install dependencies in a virtual environment:
 ```bash
 python -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements.txt  # includes pytest for running tests
 ```
 
 ### Dataset Reduction
@@ -67,7 +67,7 @@ Run the automated tests before submitting changes:
 
 ```bash
 # from the repository root
-pytest
+python -m pytest
 
 # or run Django tests directly
 cd webapp
