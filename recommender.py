@@ -2,14 +2,18 @@
 """Command line interface for recommending movies."""
 
 import argparse
+import logging
+
 from src import MovieRecommender
 
 
 def main():
     parser = argparse.ArgumentParser(description="Recommend movies from a dataset")
-    parser.add_argument('dataset', help='CSV dataset produced by movies.py')
-    parser.add_argument('title', nargs='?', help='Movie title to search for')
+    parser.add_argument("dataset", help="CSV dataset produced by movies.py")
+    parser.add_argument("title", nargs="?", help="Movie title to search for")
     args = parser.parse_args()
+
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
 
     recommender = MovieRecommender()
     recommender.load_dataset(args.dataset)
