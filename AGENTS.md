@@ -37,7 +37,7 @@ Install dependencies in a virtual environment:
 ```bash
 python -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt  # includes pytest for running tests
+pip install -r requirements.txt
 ```
 
 ### Dataset Reduction
