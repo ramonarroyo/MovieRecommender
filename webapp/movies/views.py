@@ -34,7 +34,7 @@ def search(request):
         if title:
             try:
                 recommender = get_recommender()
-                recommendations = recommender.recommend(title)
+                recommendations = recommender.recommend(title).tolist()
             except Exception as exc:
                 error = str(exc)
     return render(
