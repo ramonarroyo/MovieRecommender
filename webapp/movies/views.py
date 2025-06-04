@@ -1,12 +1,13 @@
 from pathlib import Path
 
+from django.conf import settings
+
 from django.shortcuts import render
 
 from src.movie_recommender import MovieRecommender
 
 recommender = MovieRecommender()
-BASE_DIR = Path(__file__).resolve().parents[2]
-DATASET_PATH = BASE_DIR / "movies_10.csv"
+DATASET_PATH = Path(settings.RECOMMENDER_DATASET_PATH)
 
 
 def search(request):

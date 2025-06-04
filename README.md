@@ -46,3 +46,8 @@ python manage.py runserver
 
 Navigate to `http://localhost:8000/` to search for a movie and view
 recommendations.
+
+The web app looks for the reduced dataset using the `RECOMMENDER_DATASET_PATH`
+setting in `webapp/webapp/settings.py`. By default it points to
+`movies_10.csv` in the project root. Update this path if your CSV is stored
+elsewhere.
