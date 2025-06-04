@@ -23,7 +23,7 @@ Both scripts now rely on the `MovieDatasetReducer` and `MovieRecommender` classe
 This program processes a lot of data and requires a 64-bit version of Python.
 
 ### Future Work:
-- Make into a webapp using Flask
+- Make into a webapp using Django
 - Use database to provide backend data for webapp
 - Allow user to add more than one movie at a time
 
@@ -33,3 +33,16 @@ IMDb
 Used with permission.
 
 Data location: https://datasets.imdbws.com/
+
+### Web App
+
+After generating a reduced dataset (`movies_10.csv` by default), you can start
+the Django development server from the `webapp` directory:
+
+```bash
+cd webapp
+python manage.py runserver
+```
+
+Navigate to `http://localhost:8000/` to search for a movie and view
+recommendations.
