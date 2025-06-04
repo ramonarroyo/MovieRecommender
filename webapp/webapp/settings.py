@@ -121,3 +121,6 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Location of the reduced movie dataset used by the recommender
+RECOMMENDER_DATASET_PATH = BASE_DIR / "movies_10.csv"
