@@ -67,7 +67,7 @@ Run the automated tests before submitting changes:
 
 ```bash
 # from the repository root
-pytest
+python -m pytest
 
 # or run Django tests directly
 cd webapp

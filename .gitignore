@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+
+# Django database
+webapp/db.sqlite3
+
+# Test cache
+.pytest_cache/
+
+# Build artifacts
+movies_*.csv
